@@ -12,7 +12,7 @@ namespace NukeGates
 
 		public IEnumerator<float> CloseGates()
 		{
-			yield return Timing.WaitForSeconds( 15.0f );
+			yield return Timing.WaitForSeconds( 20.0f );
 			foreach ( Door gate in Map.Doors )
 			{
 				if ( gate.DoorName == "GATE_A" || gate.DoorName == "GATE_B" )
