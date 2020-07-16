@@ -1,29 +1,28 @@
-using EXILED;
+using Exiled.API.Enums;
+using Exiled.API.Features;
+using events = Exiled.Events.Handlers;
 
 namespace NukeGates
 {
-	public class Plugin : EXILED.Plugin
+	public class Plugin : Plugin<Config>
 	{
-		public EventHandlers EventHandlers;
+		private Handlers.Server server;
 
-		public override void OnEnable()
+		public override PluginPriority Priority { get; } = PluginPriority.Medium;
+
+		public override void OnEnabled()
 		{
-			EventHandlers = new EventHandlers( this );
-			Events.WarheadStartEvent += EventHandlers.OnWarheadStart;
+			base.OnEnabled();
+			server = new Handlers.Server( this );
+			events.Warhead.Starting += server.OnWarheadStart;
 			Log.Info( $"Successfully loaded." );
 		}
 
-		public override void OnDisable()
+		public override void OnDisabled()
 		{
-			Events.WarheadStartEvent -= EventHandlers.OnWarheadStart;
-			EventHandlers = null;
+			base.OnDisabled();
+			events.Warhead.Starting -= server.OnWarheadStart;
+			server = null;
 		}
-
-		public override void OnReload()
-		{
-			
-		}
-
-		public override string getName { get; } = "NukeGates";
 	}
 }
