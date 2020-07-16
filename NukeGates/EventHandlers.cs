@@ -2,15 +2,14 @@
 using Exiled.Events.EventArgs;
 using MEC;
 using System.Collections.Generic;
-using UnityEngine;
 
-namespace NukeGates.Handlers
+namespace NukeGates
 {
-	public class Server
+	public class EventHandlers
 	{
 		private Plugin plugin;
 
-		public Server( Plugin plugin ) => this.plugin = plugin;
+		public EventHandlers( Plugin plugin ) => this.plugin = plugin;
 
 		public IEnumerator<float> CloseGates()
 		{
@@ -18,9 +17,7 @@ namespace NukeGates.Handlers
 			foreach ( Door gate in Map.Doors )
 			{
 				if ( gate.DoorName == "GATE_A" || gate.DoorName == "GATE_B" )
-				{
 					gate.ChangeState( true );
-				}
 			}
 		}
 
