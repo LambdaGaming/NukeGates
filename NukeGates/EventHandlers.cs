@@ -1,5 +1,6 @@
 ﻿using Exiled.API.Features;
 using Exiled.Events.EventArgs;
+using Interactables.Interobjects.DoorUtils;
 using MEC;
 
 namespace NukeGates
@@ -12,10 +13,15 @@ namespace NukeGates
 
 		public void CloseGates()
 		{
-			foreach ( Door gate in Map.Doors )
+			DoorVariant[] gates = {
+				Map.GetDoorByName( "GATE_A" ),
+				Map.GetDoorByName( "GATE_B" )
+			};
+			
+			foreach ( DoorVariant gate in gates )
 			{
-				if ( gate.DoorName == "GATE_A" || gate.DoorName == "GATE_B" )
-					gate.ChangeState( true );
+				gate.NetworkTargetState = false;
+				gate.ServerChangeLock( DoorLockReason.Warhead, true );
 			}
 		}
 
