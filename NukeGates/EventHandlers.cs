@@ -13,15 +13,14 @@ namespace NukeGates
 
 		public void CloseGates()
 		{
-			DoorVariant[] gates = {
+			Exiled.API.Features.Door[] gates = {
 				Map.GetDoorByName( "GATE_A" ),
 				Map.GetDoorByName( "GATE_B" )
 			};
 			
-			foreach ( DoorVariant gate in gates )
+			foreach ( Exiled.API.Features.Door gate in gates )
 			{
-				gate.NetworkTargetState = false;
-				gate.ServerChangeLock( DoorLockReason.Warhead, true );
+				gate.Open = false;
 			}
 		}
 
