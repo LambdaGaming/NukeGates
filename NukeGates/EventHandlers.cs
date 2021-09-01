@@ -20,7 +20,7 @@ namespace NukeGates
 			
 			foreach ( Exiled.API.Features.Door gate in gates )
 			{
-				gate.Open = false;
+				gate.IsOpen = false;
 			}
 		}
 
