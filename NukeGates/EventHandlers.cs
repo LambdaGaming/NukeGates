@@ -1,6 +1,5 @@
 ﻿using Exiled.API.Features;
 using Exiled.Events.EventArgs;
-using Interactables.Interobjects.DoorUtils;
 using MEC;
 
 namespace NukeGates
