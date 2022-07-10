@@ -9,6 +9,6 @@ namespace NukeGates
 		public bool IsEnabled { get; set; } = true;
 
 		[Description( "Time in seconds before the gates close after the nuke starts." )]
-		public float CloseTime { get; private set; } = 20.0f;
+		public float CloseTime { get; set; } = 20.0f;
 	}
 }

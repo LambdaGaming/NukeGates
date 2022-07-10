@@ -6,7 +6,6 @@ namespace NukeGates
 	public class EventHandlers
 	{
 		private Plugin plugin;
-
 		public EventHandlers( Plugin plugin ) => this.plugin = plugin;
 
 		public void CloseGates()

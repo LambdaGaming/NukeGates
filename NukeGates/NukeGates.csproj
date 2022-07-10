@@ -37,48 +37,37 @@
     <Compile Include="Config.cs" />
     <Compile Include="EventHandlers.cs" />
     <Compile Include="Plugin.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>\\server-pc\lambda_scp\SCPSL_Data\Managed\Assembly-CSharp.dll</HintPath>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>\\server-pc\Servers\lambda_scp\SCPSL_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>\\server-pc\lambda_scp\SCPSL_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
-    </Reference>
-    <Reference Include="CommandSystem.Core, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>\\server-pc\lambda_scp\SCPSL_Data\Managed\CommandSystem.Core.dll</HintPath>
+      <HintPath>\\server-pc\Servers\lambda_scp\SCPSL_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Exiled.API">
       <HintPath>\\server-pc\Users\starw\AppData\Roaming\EXILED\Plugins\dependencies\Exiled.API.dll</HintPath>
-    </Reference>
-    <Reference Include="Exiled.CreditTags">
-      <HintPath>\\server-pc\Users\starw\AppData\Roaming\EXILED\Plugins\Exiled.CreditTags.dll</HintPath>
-    </Reference>
-    <Reference Include="Exiled.CustomItems">
-      <HintPath>\\server-pc\Users\starw\AppData\Roaming\EXILED\Plugins\Exiled.CustomItems.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Exiled.Events">
       <HintPath>\\server-pc\Users\starw\AppData\Roaming\EXILED\Plugins\Exiled.Events.dll</HintPath>
-    </Reference>
-    <Reference Include="Exiled.Loader">
-      <HintPath>\\server-pc\Users\starw\AppData\Roaming\EXILED\Exiled.Loader.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Mirror">
-      <HintPath>\\server-pc\lambda_scp\SCPSL_Data\Managed\Mirror.dll</HintPath>
+      <HintPath>\\server-pc\Servers\lambda_scp\SCPSL_Data\Managed\Mirror.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>\\server-pc\lambda_scp\SCPSL_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>\\server-pc\Servers\lambda_scp\SCPSL_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="YamlDotNet">
-      <Version>8.1.2</Version>
-    </PackageReference>
+    <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
