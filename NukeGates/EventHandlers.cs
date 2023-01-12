@@ -1,4 +1,5 @@
-﻿using Exiled.Events.EventArgs;
+﻿using Exiled.API.Features;
+using Exiled.Events.EventArgs.Warhead;
 using MEC;
 
 namespace NukeGates
@@ -10,8 +11,8 @@ namespace NukeGates
 
 		public void CloseGates()
 		{
-			var gateA = Exiled.API.Features.Door.Get( "GATE_A" );
-			var gateB = Exiled.API.Features.Door.Get( "GATE_B" );
+			var gateA = Door.Get( "GATE_A" );
+			var gateB = Door.Get( "GATE_B" );
 			gateA.IsOpen = false;
 			gateB.IsOpen = false;
 		}
