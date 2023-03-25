@@ -13,5 +13,8 @@ namespace NukeGates
 
 		[Description( "Time in seconds before the gates close after the nuke starts." )]
 		public float CloseTime { get; set; } = 20.0f;
+
+		[Description( "List of keycard itemtypes that can open the gates once they close. Leave blank to disable." )]
+		public ItemType[] KeycardWhitelist { get; set; } = { ItemType.KeycardO5 };
 	}
 }

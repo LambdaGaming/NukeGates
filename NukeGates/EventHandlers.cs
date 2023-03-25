@@ -1,4 +1,5 @@
 ﻿using Exiled.API.Features;
+using Exiled.Events.EventArgs.Player;
 using Exiled.Events.EventArgs.Warhead;
 using MEC;
 
@@ -20,6 +21,17 @@ namespace NukeGates
 		public void OnWarheadStart( StartingEventArgs ev )
 		{
 			Timing.CallDelayed( plugin.Config.CloseTime, () => CloseGates() );
+		}
+
+		public void OnDoorUse( InteractingDoorEventArgs ev )
+		{
+			if ( Warhead.IsInProgress && plugin.Config.KeycardWhitelist.Length > 0 )
+			{
+				if ( !plugin.Config.KeycardWhitelist.Contains( ev.Player.CurrentItem.Type ) )
+				{
+					ev.IsAllowed = false;
+				}
+			}
 		}
 	}
 }
