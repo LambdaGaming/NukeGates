@@ -26,7 +26,7 @@ namespace NukeGates
 
 		public void OnDoorUse( InteractingDoorEventArgs ev )
 		{
-			if ( Warhead.IsInProgress && plugin.Config.KeycardWhitelist.Length > 0 )
+			if ( Warhead.IsInProgress && plugin.Config.KeycardWhitelist.Length > 0 && ev.Player.CurrentItem != null )
 			{
 				if ( !plugin.Config.KeycardWhitelist.Contains( ev.Player.CurrentItem.Type ) )
 				{
