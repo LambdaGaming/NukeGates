@@ -11,17 +11,27 @@ namespace NukeGates
 		private Plugin plugin;
 		public EventHandlers( Plugin plugin ) => this.plugin = plugin;
 
-		public void CloseGates()
+		public void SetGates( bool open )
 		{
 			var gateA = Door.Get( "GATE_A" );
 			var gateB = Door.Get( "GATE_B" );
-			gateA.IsOpen = false;
-			gateB.IsOpen = false;
+			gateA.IsOpen = open;
+			gateB.IsOpen = open;
 		}
 
 		public void OnWarheadStart( StartingEventArgs ev )
 		{
-			Timing.CallDelayed( plugin.Config.CloseTime, () => CloseGates() );
+			Timing.CallDelayed( plugin.Config.CloseTime, () => {
+				if ( Warhead.IsInProgress )
+					SetGates( false );
+			} );
+			if ( plugin.Config.ReopenTime > 0 )
+			{
+				Timing.CallDelayed( Warhead.DetonationTimer - plugin.Config.ReopenTime, () => {
+					if ( Warhead.IsInProgress )
+						SetGates( true );
+				} );
+			}
 		}
 
 		public void OnDoorUse( InteractingDoorEventArgs ev )
