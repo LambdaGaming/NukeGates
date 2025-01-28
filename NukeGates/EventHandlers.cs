@@ -26,6 +26,11 @@ namespace NukeGates
 
 		public void OnDoorUse( InteractingDoorEventArgs ev )
 		{
+			if ( ev.Player.IsScp && plugin.Config.CanScpsLeave && Warhead.IsInProgress && ev.Door.IsGate )
+			{
+				ev.IsAllowed = true;
+				return;
+			}
 			if ( Warhead.IsInProgress && ev.Door.IsGate && plugin.Config.KeycardWhitelist.Length > 0 && ev.Player.CurrentItem != null )
 			{
 				if ( !plugin.Config.KeycardWhitelist.Contains( ev.Player.CurrentItem.Type ) )

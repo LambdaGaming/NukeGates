@@ -16,5 +16,8 @@ namespace NukeGates
 
 		[Description( "List of keycard itemtypes that can open the gates once they close. Leave blank to disable." )]
 		public ItemType[] KeycardWhitelist { get; set; } = { ItemType.KeycardO5 };
+
+		[Description( "Whether or not SCPs should be able to open closed gates." )]
+		public bool CanScpsLeave { get; set; } = false;
 	}
 }
